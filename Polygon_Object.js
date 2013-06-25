@@ -131,7 +131,7 @@ function Polygon(xPoints,yPoints){
 	}
 	function contains(xPoint, yPoint){
 		var pathsCrossed=0;
-		var V=0;
+		var yOfPath=0;
 		if(typeof xPoint === 'number' && typeof yPoint === 'number'){
 			if(xPoint >= this.xCoor && this.xCoor+this.width >= xPoint  &&  yPoint >= this.yCoor && this.yCoor+this.height >= yPoint){
 				x.push(x[0]);
@@ -139,13 +139,13 @@ function Polygon(xPoints,yPoints){
 				var i=0;
 				while(i<x.length-1){
 					if(x[i] < xPoint && xPoint < x[i+1]){
-						V=(y[i+1]-y[i])/(x[i+1]-x[i])*(xPoint-x[i])+y[i];
-						if(yPoint  >= V){
+						yOfPath=(y[i+1]-y[i])/(x[i+1]-x[i])*(xPoint-x[i])+y[i];
+						if(yPoint  >= yOfPath){
 							pathsCrossed++;
 						}
 					}else if(x[i+1] < xPoint && xPoint < x[i]){
-						V=(y[i]-y[i+1])/(x[i]-x[i+1])*(xPoint-x[i])+y[i];
-						if(yPoint >= V){
+						yOfPath=(y[i]-y[i+1])/(x[i]-x[i+1])*(xPoint-x[i])+y[i];
+						if(yPoint >= yOfPath){
 							pathsCrossed++;
 						}
 					}else if(xPoint==x[i]){
