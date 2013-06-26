@@ -101,21 +101,33 @@ Polygon Methods:
 
 CanvasRenderingContext2D Methods for drawing polygons:
 
-	CanvasRenderingContext2D.strokePolygon(polygon)
+	CanvasRenderingContext2D.strokePolygon(x_polygon,yPoints)
 		where:
-			polygon is a Polygon object
+			x_polygon is a Polygon object
+			yPoints is not included
+			-or-
+			x_polygon is an Array of x coordinates
+			yPoints is an Array of y coordinates
 		does:
 			draws the outline of the polygon
 			
-	CanvasRenderingContext2D.fillPolygon(polygon)
+	CanvasRenderingContext2D.fillPolygon(x_polygon,yPoints)
 		where:
-			polygon is a Polygon object
+			x_polygon is a Polygon object
+			yPoints is not included
+			-or-
+			x_polygon is an Array of x coordinates
+			yPoints is an Array of y coordinates
 		does:
 			draws a filled polygon
 			
-	CanvasRenderingContext2D.clearPolygon(polygon)
+	CanvasRenderingContext2D.clearPolygon(x_polygon,yPoints)
 		where:
-			polygon is a Polygon object
+			x_polygon is a Polygon object
+			yPoints is not included
+			-or-
+			x_polygon is an Array of x coordinates
+			yPoints is an Array of y coordinates
 		does:
 			clears the area contained in the polygon
 

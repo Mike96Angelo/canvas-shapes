@@ -174,57 +174,66 @@ function Polygon(xPoints,yPoints){
 	}
 }
 /*******Canvas methods to draw polygons*******/
-CanvasRenderingContext2D.prototype.strokePolygon=function(polygon){
+CanvasRenderingContext2D.prototype.strokePolygon=function(x_polygon,y){
 	var x=[];
-	var y=[];
-	if(polygon.constructor == Polygon){
-		x=polygon.xPoints;
-		y=polygon.yPoints;
+	if(x_polygon.constructor == Polygon){
+		x=x_polygon.xPoints;
+		y=x_polygon.yPoints;
+	}else if(x_polygon.constructor == Array){
+		x=x_polygon;
 	}
-	var i=0;
-	this.beginPath();
-	this.moveTo(x[i],y[i]);
-	while(i<x.length){
-		i++;
-		this.lineTo(x[i],y[i]);
+	if(x.constructor == Array && y.constructor == Array){
+		var i=0;
+		this.beginPath();
+		this.moveTo(x[i],y[i]);
+		while(i<x.length){
+			i++;
+			this.lineTo(x[i],y[i]);
+		}
+		this.closePath();
+		this.stroke();
 	}
-	this.closePath();
-	this.stroke();
 }
-CanvasRenderingContext2D.prototype.fillPolygon=function(polygon){
+CanvasRenderingContext2D.prototype.fillPolygon=function(x_polygon,y){
 	var x=[];
-	var y=[];
-	if(polygon.constructor == Polygon){
-		x=polygon.xPoints;
-		y=polygon.yPoints;
+	if(x_polygon.constructor == Polygon){
+		x=x_polygon.xPoints;
+		y=x_polygon.yPoints;
+	}else if(x_polygon.constructor == Array){
+		x=x_polygon;
 	}
-	var i=0;
-	this.beginPath();
-	this.moveTo(x[i],y[i]);
-	while(i<x.length){
-		i++;
-		this.lineTo(x[i],y[i]);
+	if(x.constructor == Array && y.constructor == Array){
+		var i=0;
+		this.beginPath();
+		this.moveTo(x[i],y[i]);
+		while(i<x.length){
+			i++;
+			this.lineTo(x[i],y[i]);
+		}
+		this.closePath();
+		this.fill();
 	}
-	this.closePath();
-	this.fill();
 }
-CanvasRenderingContext2D.prototype.clearPolygon=function(polygon){
+CanvasRenderingContext2D.prototype.clearPolygon=function(x_polygon,y){
 	var x=[];
-	var y=[];
-	if(polygon.constructor == Polygon){
-		x=polygon.xPoints;
-		y=polygon.yPoints;
+	if(x_polygon.constructor == Polygon){
+		x=x_polygon.xPoints;
+		y=x_polygon.yPoints;
+	}else if(x_polygon.constructor == Array){
+		x=x_polygon;
 	}
-	var i=0;
-	this.globalCompositeOperation = "destination-out";
-	this.beginPath();
-	this.moveTo(x[i],y[i]);
-	while(i<x.length){
-		i++;
-		this.lineTo(x[i],y[i]);
+	if(x.constructor == Array && y.constructor == Array){
+		var i=0;
+		this.globalCompositeOperation = "destination-out";
+		this.beginPath();
+		this.moveTo(x[i],y[i]);
+		while(i<x.length){
+			i++;
+			this.lineTo(x[i],y[i]);
+		}
+		this.closePath();
+		this.fill();
+		this.globalCompositeOperation = "source-over";
 	}
-	this.closePath();
-	this.fill();
-	this.globalCompositeOperation = "source-over";
 }
 /*******End of Code*******/
