@@ -58,6 +58,7 @@ function Polygon(xPoints,yPoints){
 	this.movePoint=movePoint;
 	this.reset=reset;
 	this.translate=translate;
+	this.moveTo=moveTo;
 	this.resize=resize;
 	this.contains=contains;
 //Method Actions
@@ -112,6 +113,12 @@ function Polygon(xPoints,yPoints){
 				y[i]+=yMove;
 				i++;
 			}
+		}
+		this.set();
+	}
+	function moveTo(xMove, yMove){
+		if(typeof xMove === 'number' && typeof yMove === 'number'){
+			this.translate(-1*(this.xCoor-xMove),-1*(this.yCoor-yMove));
 		}
 		this.set();
 	}

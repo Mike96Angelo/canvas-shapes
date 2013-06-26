@@ -85,6 +85,13 @@ Polygon Methods:
 		does:
 			translate the polygon
 			
+	Polygon.moveTo(xMove, yMove)
+		where:
+			xMove is where to move in the x
+			yMove is where to move in the y
+		does:
+			move the polygon to specified location
+			
 	Polygon.resize(sizeMultiplier)
 		where:
 			sizeMultiplier is the scale in which to resize
